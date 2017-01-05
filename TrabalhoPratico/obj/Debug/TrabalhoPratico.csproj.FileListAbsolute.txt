@@ -1,2 +1,3 @@
 C:\Users\Vasco\Desktop\TrabalhoPraticoC#\TrabalhoPratico\TrabalhoPratico\bin\Debug\TrabalhoPratico.exe.config
 C:\Users\bolod\Desktop\Paradigms Trabalho Pratico\TrabalhoParadigmas\TrabalhoPratico\bin\Debug\TrabalhoPratico.exe.config
+C:\Users\Vasco\Desktop\TrabalhoPraticoC#\TrabalhoPratico\TrabalhoParadigmas\TrabalhoPratico\bin\Debug\TrabalhoPratico.exe.config
