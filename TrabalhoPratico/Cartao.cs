@@ -41,9 +41,9 @@ namespace TrabalhoPratico
             set { morada = value; }
         }
 
-        private double telefone;
+        private string telefone;
 
-        public double Telefone
+        public string Telefone
         {
             get { return telefone; }
             set { telefone = value; }
@@ -73,7 +73,7 @@ namespace TrabalhoPratico
             set { movimentos = value; }
         }
 
-        public Cartao(string nome, string cartaocidadao, string nif, string morada, double telefone, string email)
+        public Cartao(string nome, string cartaocidadao, string nif, string morada, string telefone, string email)
         {
             this.nome = nome;
             this.numeroCartaoCidadao = cartaocidadao;

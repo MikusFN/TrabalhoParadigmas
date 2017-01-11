@@ -8,11 +8,11 @@ namespace Trabalho_pratico
 {
     public class Artigo
     {
-        private string codigocartao;
+        private string codigoartigo;
         public string Codigocartao
         {
-            get { return codigocartao; }
-            set { codigocartao = value; }
+            get { return codigoartigo; }
+            set { codigoartigo = value; }
         }
 
         private string descricao;
@@ -38,7 +38,7 @@ namespace Trabalho_pratico
 
         public Artigo(string codigo, string descricao, float precounitario, int quantidadestock)
         {
-            this.Codigocartao = codigo;
+            this.codigoartigo = codigo;
             this.Descricao = descricao;
             this.Precounitario = precounitario;
             this.Quantidadestock = quantidadestock;
