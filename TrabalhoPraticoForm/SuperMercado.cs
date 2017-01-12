@@ -6,6 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 using Trabalho_pratico;
 using TrabalhoPratico;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.Globalization;
 
 
 namespace TrabalhoPraticoForm
@@ -36,6 +38,7 @@ namespace TrabalhoPraticoForm
             get { return nome; }
             set { nome = value; }
         }
+        public DateTime Today { get; }
 
 
         public SuperMercado(string nome)
@@ -64,47 +67,96 @@ namespace TrabalhoPraticoForm
         
        
         //AtribuirCartao
-        public void AtribuirCartao(Cartao cart)
-        {
-            foreach (Cartao c in listaclientes)
-            {
-                if (c.NumeroCartaoCidadao == cart.NumeroCartaoCidadao)
-                {
-                    throw new Exception("Um cliente já se registou com este Cartão de Cidadão. Tente outro por favor.");
-                }
-                else if (c.NIF == cart.NIF)
-                {
-                    throw new Exception("Um cliente já se registou com este NIF. Tente outro por favor.");
-                }
-                else if (c.Telefone == cart.Telefone)
-                {
-                    throw new Exception("Um cliente já se registou com este Telefone. Tente outro por favor.");
-                }
-                else if (c.Email == cart.Email)
-                {
-                    throw new Exception("Um cliente já se registou com este email. Tente outro por favor.");
-                }
-             }
-             listaclientes.Add(cart);
-        }
-        //AtribuirCompra
-        
+        //public void AtribuirCartao(Cartao cart)
+        //{
+        //    foreach (Cartao c in listaclientes)
+        //    {
+        //        if (c.NumeroCartaoCidadao == cart.NumeroCartaoCidadao)
+        //        {
+        //            throw new Exception("Um cliente já se registou com este Cartão de Cidadão. Tente outro por favor.");
+        //        }
+        //        else if (c.NIF == cart.NIF)
+        //        {
+        //            throw new Exception("Um cliente já se registou com este NIF. Tente outro por favor.");
+        //        }
+        //        else if (c.Telefone == cart.Telefone)
+        //        {
+        //            throw new Exception("Um cliente já se registou com este Telefone. Tente outro por favor.");
+        //        }
+        //        else if (c.Email == cart.Email)
+        //        {
+        //            throw new Exception("Um cliente já se registou com este email. Tente outro por favor.");
+        //        }
+        //     }
+        //     listaclientes.Add(cart);
+        //}
+        ////AtribuirCompra
+        //public static void GuardarDados(SuperMercado sp)
+        //{
+
+        //    Stream s = File.Open("SuperDume.bin", FileMode.Create);
+        //    BinaryFormatter bf = new BinaryFormatter();
+        //    bf.Serialize(s, sp);
+        //    s.Close();
+        //    SuperMercado sd = new SuperMercado("SuperDume");
+        //    StreamWriter sw = new StreamWriter("SuperDume.csv");
+        //    foreach (Artigo art in sd.ListaArtigos.Values)
+        //    {
+        //        sw.Write(art.Codigocartao + "," + art.Descricao + "," + art.Precounitario + "," + art.Quantidadestock + ",");
+
+
+        //    }
+        //    sw.WriteLine();
+        //    foreach (Cartao card in sd.ListaClientes)
+        //    {
+        //        sw.Write(card.Nome + "," + card.NumeroCartaoCidadao + "," + card.NIF + "," + card.Morada + "," + card.Email + "," + card.Telefone + "," + card.Pontos);
+
+        //    }
+        //    sw.WriteLine();
+        //    sw.Close();
+        //}
+        //public SuperMercado CarregarDados()
+        //{
+        //    SuperMercado sp = new SuperMercado("SuperDume");
+        //    try
+        //    {
+
+        //        if (File.Exists("SuperDume.bin"))
+        //        {
+        //            Stream s = File.Open("SuperDume.bin", FileMode.Open);
+        //            BinaryFormatter bf = new BinaryFormatter();
+        //            sp = (SuperMercado)bf.Deserialize(s);
+        //            s.Close();
+
+        //        }
+
+        //    }
+
+        //    catch (FileNotFoundException fe)
+        //    {
+        //        Console.WriteLine("Ficheiro inexistente!");
+        //    }
+        //    catch (DirectoryNotFoundException de)
+        //    {
+        //        Console.WriteLine("Directoria invalida!");
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        Console.WriteLine("ERRO!");
+        //    }
+        //    return sp;
+        //}
+        //public void Promocoes(DateTime Today)
+        //{
+
+        //    DateTime thisDay = DateTime.Today;
+        //    Console.WriteLine(thisDay.ToString("d"));
+        //    long t = thisDay.Ticks;
+        //    DateTime dateValue = new DateTime(t);
+        //    Console.WriteLine(dateValue.ToString("dddd", new CultureInfo("PT-PT")));
+
+
+        //}
+
     }
 }
-//public void GuardarDados()//Para guardar ficheiros em exel.
-//{     streamWriter sw = new streamWriter("SuperDume.csv");
-//    foreach (Artigo art in ListaArtigos.Values)
-//    {
-//        sw.Write(art.Codigocartao + "," + art.Descricao + "," + art.Precounitario + "," + art.Quantidadestock + ",");
-//        sw.WriteLine();
-
-//    }
-//    foreach (Cartao card in ListaClientes)
-//    {
-//        sw.Write(card.Nome + "," + card.NumeroCartaoCidadao + "," + card.NIF + "," + card.Morada + "," + card.Email + "," + card.Telefone + "," + card.Pontos);
-//        sw.WriteLine();
-//    }
-//    sw.Close();
-//}
-
-
