@@ -55,11 +55,11 @@
       <DependentUpon>GerirArtigos.cs</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GuargarCarregarFicheiro.cs">
+    <Compile Include="SuperDumeForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GuargarCarregarFicheiro.Designer.cs">
-      <DependentUpon>GuargarCarregarFicheiro.cs</DependentUpon>
+    <Compile Include="SuperDumeForm.Designer.cs">
+      <DependentUpon>SuperDumeForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -67,8 +67,8 @@
     <EmbeddedResource Include="GerirArtigos.resx">
       <DependentUpon>GerirArtigos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GuargarCarregarFicheiro.resx">
-      <DependentUpon>GuargarCarregarFicheiro.cs</DependentUpon>
+    <EmbeddedResource Include="SuperDumeForm.resx">
+      <DependentUpon>SuperDumeForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
