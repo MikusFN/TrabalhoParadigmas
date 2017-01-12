@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 namespace TrabalhoPratico
 {
     //Cartao
+    [Serializable]
     public class Cartao
     {
         private string nome;
@@ -84,6 +85,14 @@ namespace TrabalhoPratico
             this.movimentos = new List<Movimento>();
         }
 
+        public void AdicionarListaCompras(List<Movimento> mov)
+        {
+            foreach (Movimento m in mov)
+            {
+                movimentos.Add(m);
+            }
+        }
+
     }
 
     //Movimentos
@@ -105,22 +114,22 @@ namespace TrabalhoPratico
             set { descricao = value; }
         }
 
-        private string quantidade;
+        private int quantidade;
 
-        public string Quantidade
+        public int Quantidade
         {
             get { return quantidade; }
             set { quantidade = value; }
         }
 
-        private string valordaCompra;
+        private float valordaCompra;
 
-        public string ValordaCompra
+        public float ValordaCompra
         {
             get { return valordaCompra; }
             set { valordaCompra = value; }
         }
-        public Movimento(string codigodeArtigo, string descricao, string quantidade, string valordacompra)
+        public Movimento(string codigodeArtigo, string descricao, int quantidade, float valordacompra)
         {
             this.codigodeArtigo = codigodeArtigo;
             this.descricao = descricao;

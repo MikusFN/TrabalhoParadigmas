@@ -7,8 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace TrabalhoPraticoForm
 {
@@ -19,16 +19,51 @@ namespace TrabalhoPraticoForm
         {
             InitializeComponent();
             this.FormClosing += SuperDume_FormClosing;
-            sm = sm.CarregarDados();
+            sm = CarregaMercado();
+        }
+
+        public SuperMercado CarregaMercado()
+        {
+            SuperMercado sm = new SuperMercado("M");
+
+            if (File.Exists("supermercado.bin"))
+            {
+                Stream s = File.Open("supermercado.bin", FileMode.Open);
+                BinaryFormatter bf = new BinaryFormatter();
+                sm = (SuperMercado)bf.Deserialize(s);
+                s.Close();
+            }
+            return sm;
+        }
+
+        public static void Guardar(SuperMercado m)
+        {
+            try
+            {
+                Stream s = File.Open("supermercado.bin", FileMode.Create);
+                BinaryFormatter bf = new BinaryFormatter();
+                bf.Serialize(s, m);
+                s.Close();
+            }
+            catch (FileNotFoundException f)
+            {
+                throw new Exception("Ficheiro inexistente");
+            }
+            catch (DirectoryNotFoundException d)
+            {
+                throw new Exception("Directoria invalida");
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Excepcao generica");
+            }
         }
 
         private void SuperDume_FormClosing(object sender, FormClosingEventArgs e)
         {
-            
-
             if (MessageBox.Show("Tem a certeza que pretende sair?", "Sair?", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
             {
-                GuardarDados();
+                Guardar(sm);
 
             }
             else
@@ -40,51 +75,39 @@ namespace TrabalhoPraticoForm
 
         private void CarregarFicheiro_Click(object sender, EventArgs e)
         {
-            sm.GuardarDados();
-        }
+            try
+            {
+                sm=CarregaMercado();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+}
 
         private void GuardarFicheiro_Click(object sender, EventArgs e)
         {
-            sm.CarregarDados();
-        }
-        public void GuardarDados()
-        {
             try
             {
-                SuperMercado sp = new SuperMercado("SuperDume");
-            Stream s = File.Open("SuperDume.bin", FileMode.Create);
-            BinaryFormatter bf = new BinaryFormatter();
-            bf.Serialize(s, sp);
-            s.Close();
+                Guardar(sm);
             }
-
-            catch (FileNotFoundException fe)
+            catch(Exception ex)
             {
-                MessageBox.Show("Ficheiro inexistente!");
-            }
-            catch (DirectoryNotFoundException de)
-            {
-                MessageBox.Show("Directoria invalida!");
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show("ERRO!");
+                MessageBox.Show(ex.Message);
             }
         }
-        public SuperMercado CarregarDados()
+
+        private void btGerirArtigos_Click(object sender, EventArgs e)
         {
-            SuperMercado sp = new SuperMercado("SuperDume");
-           
+            GerirArtigos f = new GerirArtigos(sm);
+            f.ShowDialog();
+            
+        }
 
-                if (File.Exists("SuperDume.bin"))
-                {
-                    Stream s = File.Open("SuperDume.bin", FileMode.Open);
-                    BinaryFormatter bf = new BinaryFormatter();
-                    sp = (SuperMercado)bf.Deserialize(s);
-                    s.Close();
-
-                }           
-            return sp;
+        private void btGerirCartoes_Click(object sender, EventArgs e)
+        {
+            GerirPontos f = new GerirPontos(sm);
+            f.ShowDialog();
         }
     }
 }

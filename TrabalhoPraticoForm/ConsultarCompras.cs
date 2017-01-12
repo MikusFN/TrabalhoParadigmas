@@ -13,29 +13,18 @@ namespace TrabalhoPraticoForm
 {
     public partial class ConsultarCompras : Form
     {
-        Cartao cartao;
-        Movimento mov;
-        public ConsultarCompras(Movimento movimento)
+        SuperMercado m;
+        string codigo;
+        public ConsultarCompras(string codigo,SuperMercado m)
         {
             InitializeComponent();
             //Criar a tabela mal se entre nesta janela
             CriaTabela();
-            this.FormClosing += ConsultarCompras_FormClosing;
+            this.m = m;
+            this.codigo = codigo;
+            
         }
-        //Sair do programa
-        private void ConsultarCompras_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            if (MessageBox.Show("Tem a certeza que pretende sair?", "Sair?",
-               MessageBoxButtons.YesNo,
-               MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
-            {
-                Guardar(cartao);
-            }
-            else
-            {
-                e.Cancel = true;
-            }
-        }
+        
         //Criar Tabela para Consulta
         private void CriaTabela()
         {
@@ -45,18 +34,24 @@ namespace TrabalhoPraticoForm
 
             // cria as colunas relevantes para os livros
             dataGridRegistos.Columns.Add("Codigo Artigo", "Codigo Artigo");
-            dataGridRegistos.Columns.Add("Quantidade", "Quantidade");
-            dataGridRegistos.Columns.Add("Valor", "Valor");
+            dataGridRegistos.Columns.Add("Quantidade da Compra", "Quantidade da Compra");
+            dataGridRegistos.Columns.Add("Valor da Compra", "Valor da Compra");
             dataGridRegistos.Columns.Add("Descricao", "Descricao");
 
             // adiciona cada registo existente em movimentos à gridview
-            foreach (Movimento mov in cartao.Movimentos)
+            foreach (Cartao card in m.ListaClientes)
             {
-                int index = dataGridRegistos.Rows.Add();
-                dataGridRegistos.Rows[index].Cells[0].Value = mov.CodigodeArtigo;
-                dataGridRegistos.Rows[index].Cells[1].Value = mov.Quantidade;
-                dataGridRegistos.Rows[index].Cells[2].Value = mov.ValordaCompra;
-                dataGridRegistos.Rows[index].Cells[3].Value = mov.Descricao;
+                if (card.NumeroCartaoCidadao == codigo)
+                {
+                    foreach (Movimento mov in card.Movimentos)
+                    {
+                        int index = dataGridRegistos.Rows.Add();
+                        dataGridRegistos.Rows[index].Cells[0].Value = mov.CodigodeArtigo;
+                        dataGridRegistos.Rows[index].Cells[1].Value = mov.Quantidade;
+                        dataGridRegistos.Rows[index].Cells[2].Value = mov.ValordaCompra;
+                        dataGridRegistos.Rows[index].Cells[3].Value = mov.Descricao;
+                    }
+                }
             }
         }
         //Butao Recuar

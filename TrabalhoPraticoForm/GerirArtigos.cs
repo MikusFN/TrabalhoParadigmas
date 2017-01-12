@@ -7,14 +7,66 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Trabalho_pratico;
 
 namespace TrabalhoPraticoForm
 {
-    public partial class Form1 : Form
+    public partial class GerirArtigos : Form
     {
-        public Form1()
+        SuperMercado m;
+        public GerirArtigos(SuperMercado m)
         {
             InitializeComponent();
+            CriaTabela();
+            this.m = m;
+            
+        }
+
+        private void CriaTabela()
+        {
+            dtGridArtigos.Columns.Clear();
+            dtGridArtigos.Rows.Clear();
+            dtGridArtigos.Columns.Add("Código de Artigo", "Código de Artigo");
+            dtGridArtigos.Columns.Add("Preço", "Preço");
+            dtGridArtigos.Columns.Add("Quantidade em Stock", "Quantidade em Stock");
+
+            foreach (Artigo art in m.ListaArtigos.Values)
+            {
+                int index = dtGridArtigos.Rows.Add();
+                dtGridArtigos.Rows[index].Cells[0].Value = art.Codigocartao;
+                dtGridArtigos.Rows[index].Cells[1].Value = art.Precounitario;
+                dtGridArtigos.Rows[index].Cells[2].Value = art.Quantidadestock;
+
+            }
+
+        }
+
+
+        private void btRemoverArt_Click(object sender, EventArgs e)
+        {
+            if (dtGridArtigos.SelectedRows.Count > 0)
+            {
+                if (MessageBox.Show("Tem a certeza que pretende remover o artigo selecionado?", "Eliminar", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
+                {
+                    {
+                        DataGridViewSelectedRowCollection selecionados = dtGridArtigos.SelectedRows;
+                        foreach (DataGridViewRow r in selecionados)
+                        {
+                            string codigo = r.Cells[0].Value.ToString();
+                            m.RemoverArtigo(codigo);
+
+                        }
+                        CriaTabela();
+                    }
+                }
+            }
+        }
+
+        private void btAdicionarArt_Click(object sender, EventArgs e)
+        {
+            FormAdicionarArtigo f = new FormAdicionarArtigo(m);
+            f.ShowDialog();
+            CriaTabela();
         }
     }
 }

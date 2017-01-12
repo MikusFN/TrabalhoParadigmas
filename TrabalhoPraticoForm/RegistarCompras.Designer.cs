@@ -30,13 +30,16 @@
         {
             this.textBoxValor = new System.Windows.Forms.TextBox();
             this.labelValor = new System.Windows.Forms.Label();
-            this.textBoxQuantidade = new System.Windows.Forms.TextBox();
             this.labelQuantidade = new System.Windows.Forms.Label();
             this.textBoxDescricao = new System.Windows.Forms.TextBox();
             this.labelDescricao = new System.Windows.Forms.Label();
-            this.textBoxCodigo = new System.Windows.Forms.TextBox();
             this.labelCodigo = new System.Windows.Forms.Label();
             this.buttonConcluirRegistar = new System.Windows.Forms.Button();
+            this.comboBoxArtigos = new System.Windows.Forms.ComboBox();
+            this.numericQuantidade = new System.Windows.Forms.NumericUpDown();
+            this.listbxCompras = new System.Windows.Forms.ListBox();
+            this.btAdicionarCompra = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.numericQuantidade)).BeginInit();
             this.SuspendLayout();
             // 
             // textBoxValor
@@ -54,13 +57,6 @@
             this.labelValor.Size = new System.Drawing.Size(84, 13);
             this.labelValor.TabIndex = 15;
             this.labelValor.Text = "Valor de compra";
-            // 
-            // textBoxQuantidade
-            // 
-            this.textBoxQuantidade.Location = new System.Drawing.Point(124, 156);
-            this.textBoxQuantidade.Name = "textBoxQuantidade";
-            this.textBoxQuantidade.Size = new System.Drawing.Size(100, 20);
-            this.textBoxQuantidade.TabIndex = 14;
             // 
             // labelQuantidade
             // 
@@ -87,13 +83,6 @@
             this.labelDescricao.TabIndex = 11;
             this.labelDescricao.Text = "Descricao:";
             // 
-            // textBoxCodigo
-            // 
-            this.textBoxCodigo.Location = new System.Drawing.Point(124, 42);
-            this.textBoxCodigo.Name = "textBoxCodigo";
-            this.textBoxCodigo.Size = new System.Drawing.Size(100, 20);
-            this.textBoxCodigo.TabIndex = 10;
-            // 
             // labelCodigo
             // 
             this.labelCodigo.AutoSize = true;
@@ -113,22 +102,59 @@
             this.buttonConcluirRegistar.UseVisualStyleBackColor = true;
             this.buttonConcluirRegistar.Click += new System.EventHandler(this.buttonConcluirRegistar_Click);
             // 
+            // comboBoxArtigos
+            // 
+            this.comboBoxArtigos.FormattingEnabled = true;
+            this.comboBoxArtigos.Location = new System.Drawing.Point(136, 42);
+            this.comboBoxArtigos.Name = "comboBoxArtigos";
+            this.comboBoxArtigos.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxArtigos.TabIndex = 18;
+            // 
+            // numericQuantidade
+            // 
+            this.numericQuantidade.Location = new System.Drawing.Point(124, 156);
+            this.numericQuantidade.Name = "numericQuantidade";
+            this.numericQuantidade.Size = new System.Drawing.Size(34, 20);
+            this.numericQuantidade.TabIndex = 19;
+            this.numericQuantidade.ValueChanged += new System.EventHandler(this.numericQuantidade_ValueChanged);
+            // 
+            // listbxCompras
+            // 
+            this.listbxCompras.FormattingEnabled = true;
+            this.listbxCompras.Location = new System.Drawing.Point(373, 42);
+            this.listbxCompras.Name = "listbxCompras";
+            this.listbxCompras.Size = new System.Drawing.Size(268, 290);
+            this.listbxCompras.TabIndex = 20;
+            // 
+            // btAdicionarCompra
+            // 
+            this.btAdicionarCompra.Location = new System.Drawing.Point(437, 371);
+            this.btAdicionarCompra.Name = "btAdicionarCompra";
+            this.btAdicionarCompra.Size = new System.Drawing.Size(139, 23);
+            this.btAdicionarCompra.TabIndex = 21;
+            this.btAdicionarCompra.Text = "Adicionar Compra";
+            this.btAdicionarCompra.UseVisualStyleBackColor = true;
+            this.btAdicionarCompra.Click += new System.EventHandler(this.btAdicionarCompra_Click);
+            // 
             // RegistarCompras
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(728, 544);
+            this.Controls.Add(this.btAdicionarCompra);
+            this.Controls.Add(this.listbxCompras);
+            this.Controls.Add(this.numericQuantidade);
+            this.Controls.Add(this.comboBoxArtigos);
             this.Controls.Add(this.buttonConcluirRegistar);
             this.Controls.Add(this.textBoxValor);
             this.Controls.Add(this.labelValor);
-            this.Controls.Add(this.textBoxQuantidade);
             this.Controls.Add(this.labelQuantidade);
             this.Controls.Add(this.textBoxDescricao);
             this.Controls.Add(this.labelDescricao);
-            this.Controls.Add(this.textBoxCodigo);
             this.Controls.Add(this.labelCodigo);
             this.Name = "RegistarCompras";
             this.Text = "RegistarCompras";
+            ((System.ComponentModel.ISupportInitialize)(this.numericQuantidade)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -138,12 +164,14 @@
 
         private System.Windows.Forms.TextBox textBoxValor;
         private System.Windows.Forms.Label labelValor;
-        private System.Windows.Forms.TextBox textBoxQuantidade;
         private System.Windows.Forms.Label labelQuantidade;
         private System.Windows.Forms.TextBox textBoxDescricao;
         private System.Windows.Forms.Label labelDescricao;
-        private System.Windows.Forms.TextBox textBoxCodigo;
         private System.Windows.Forms.Label labelCodigo;
         private System.Windows.Forms.Button buttonConcluirRegistar;
+        private System.Windows.Forms.ComboBox comboBoxArtigos;
+        private System.Windows.Forms.NumericUpDown numericQuantidade;
+        private System.Windows.Forms.ListBox listbxCompras;
+        private System.Windows.Forms.Button btAdicionarCompra;
     }
 }

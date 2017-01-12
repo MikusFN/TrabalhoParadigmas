@@ -7,18 +7,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Trabalho_pratico;
 using TrabalhoPratico;
 
 namespace TrabalhoPraticoForm
 {
     public partial class AtribuirCartao : Form
     {
-        Cartao Acartao;
         SuperMercado Mercado;
-        public AtribuirCartao(Cartao cartao)
+        public AtribuirCartao(SuperMercado m)
         {
             InitializeComponent();
-            this.Acartao = cartao;
+            Mercado = m;
             
         }
         private void AtribuirCartao_Load(object sender, EventArgs e)
@@ -79,7 +79,7 @@ namespace TrabalhoPraticoForm
                         string Email = textBoEmail.Text;
 
                         Cartao cart = new Cartao(Nome, Cartao, Nif, Morada, Telefone, Email);
-                    //Verificar novamente que nao ha erros
+                        //Verificar novamente que nao ha erros
                         Mercado.AtribuirCartao(cart);
 
                         MessageBox.Show("Cartao feito com sucesso");

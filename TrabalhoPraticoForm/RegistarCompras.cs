@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Trabalho_pratico;
 using TrabalhoPratico;
 
 namespace TrabalhoPraticoForm
@@ -15,70 +16,58 @@ namespace TrabalhoPraticoForm
     {
         SuperMercado Mercado;
         Cartao cartao;
+        List<Movimento> movimentostemp = new List<Movimento>();
         public RegistarCompras(Cartao cartao)
         {
             InitializeComponent();
-            this.FormClosing += RegistarComprasForm_FormClosing;
+            comboBoxArtigos.Items.AddRange(this.Mercado.ListaArtigos.Values.ToArray());
+            this.cartao = cartao;
         }
-        private void RegistarComprasForm_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            if (MessageBox.Show("Tem a certeza que pretende sair?", "Sair?",
-               MessageBoxButtons.YesNo,
-               MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
-            {
-                Guardar(cartao);
-            }
-            else
-            {
-                e.Cancel = true;
-            }
-        }
+       
         private void buttonConcluirRegistar_Click(object sender, EventArgs e)
         {
             {
-                try
+                if (movimentostemp.Count() >= 1)
                 {
-                    //Confirmar que nenhuma braket esta em branco
-                    //CODIGO DO ARTIGO
-                    if (textBoxCodigo .Text.Trim().Equals(""))
-                    {
-                        MessageBox.Show("Preencha o campo do Codigo do Artigo");
-                        textBoxCodigo.Focus();
-                    }
-                    //QUANTIDADE
-                    else if (textBoxQuantidade.Text.Trim().Equals(""))
-                    {
-                        MessageBox.Show("Preencha o campo da Quantidade");
-                        textBoxQuantidade .Focus();
-                    }
-                    //VALOR DE COMPRA
-                    else if (textBoxValor.Text.Trim().Equals(""))
-                    {
-                        MessageBox.Show("Preencha o campo do Valor de compra");
-                        textBoxValor.Focus();
-                    }
-                    //converter o texto introduzido para as variaveis
-                    else
-                    {
-                        string Codigo = textBoxCodigo.Text;
-                        string Descricao = textBoxDescricao.Text;
-                        string Quantidade = textBoxQuantidade.Text;
-                        string Valor = textBoxValor.Text;
-
-                        Movimento mov = new Movimento(Codigo, Descricao, Quantidade, Valor);
-                        //Verificar novamente que nao ha erros
-                        Mercado.AtribuirCompra(mov);
-
-                        MessageBox.Show("Compra registada com sucesso");
-                        this.Close();
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Erro: " + ex.Message, "Erro",
-                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    cartao.AdicionarListaCompras(movimentostemp);
+                    MessageBox.Show("Foram adicionados com sucesso estas compras");
+                    Close();
                 }
             }
+        }
+
+        private void btAdicionarCompra_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Artigo art = (Artigo)comboBoxArtigos.SelectedItem;
+                string Codigo = art.Codigocartao;
+                string Descricao = textBoxDescricao.Text;
+                int Quantidade = (int)numericQuantidade.Value;
+                float valor = (float)(Quantidade * art.Precounitario);
+                Movimento mov = new Movimento(Codigo, Descricao, Quantidade, valor);
+                string nome = art.Nome;
+                movimentostemp.Add(mov);
+                listbxCompras.Items.Add(nome);
+                foreach (Artigo a in Mercado.ListaArtigos.Values)
+                {
+                    if (a.Codigocartao == Codigo)
+                    {
+                        a.Quantidadestock -= (int)numericQuantidade.Value;
+                    }
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Erro: " + ex.Message, "Erro",
+                 MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void numericQuantidade_ValueChanged(object sender, EventArgs e)
+        {
+            Artigo art = (Artigo)comboBoxArtigos.SelectedItem;
+            numericQuantidade.Maximum = art.Quantidadestock;
         }
     }
 }

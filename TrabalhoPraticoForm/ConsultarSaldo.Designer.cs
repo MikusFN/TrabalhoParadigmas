@@ -35,9 +35,9 @@
             // 
             // buttonRecuar
             // 
-            this.buttonRecuar.Location = new System.Drawing.Point(185, 421);
+            this.buttonRecuar.Location = new System.Drawing.Point(193, 293);
             this.buttonRecuar.Name = "buttonRecuar";
-            this.buttonRecuar.Size = new System.Drawing.Size(75, 23);
+            this.buttonRecuar.Size = new System.Drawing.Size(113, 44);
             this.buttonRecuar.TabIndex = 2;
             this.buttonRecuar.Text = "Recuar";
             this.buttonRecuar.UseVisualStyleBackColor = true;
@@ -48,10 +48,10 @@
             this.dataGridViewSaldo.AllowUserToAddRows = false;
             this.dataGridViewSaldo.AllowUserToDeleteRows = false;
             this.dataGridViewSaldo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewSaldo.Location = new System.Drawing.Point(75, 68);
+            this.dataGridViewSaldo.Location = new System.Drawing.Point(85, 118);
             this.dataGridViewSaldo.Name = "dataGridViewSaldo";
             this.dataGridViewSaldo.ReadOnly = true;
-            this.dataGridViewSaldo.Size = new System.Drawing.Size(240, 150);
+            this.dataGridViewSaldo.Size = new System.Drawing.Size(307, 44);
             this.dataGridViewSaldo.TabIndex = 3;
             // 
             // ConsultarSaldo

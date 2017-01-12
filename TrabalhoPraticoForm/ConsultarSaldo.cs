@@ -13,14 +13,16 @@ namespace TrabalhoPraticoForm
 {
     public partial class ConsultarSaldo : Form
     {
-        Cartao cartao;
+        string codigo;
         Movimento mov;
         SuperMercado mercado;
 
-        public ConsultarSaldo(Cartao cartao)
+        public ConsultarSaldo(string codigo,SuperMercado mercado)
         {
             InitializeComponent();
             CriaTabela();
+            this.codigo = codigo;
+            this.mercado = mercado;
         }
         //Recuar 
         private void buttonRecuar_Click(object sender, EventArgs e)
@@ -34,19 +36,26 @@ namespace TrabalhoPraticoForm
             dataGridViewSaldo.Rows.Clear();
 
             // cria as colunas relevantes para os livros
-            dataGridViewSaldo.Columns.Add("Saldo", "Saldo");
+            dataGridViewSaldo.Columns.Add("Quantia Gasta", "Quantia Gasta");
             dataGridViewSaldo.Columns.Add("Pontos", "Pontos");
-
-            for(int i = 0; i < cartao.Movimentos.Count(); i++)
+            float ValorSaldo = 0;
+            foreach (Cartao card in mercado.ListaClientes)
             {
-                foreach (Movimento mov in cartao.Movimentos)
+                if (card.NumeroCartaoCidadao == codigo)
                 {
-                    float ValorSaldo = +int.Parse(mov.ValordaCompra);
+                    for (int i = 0; i < card.Movimentos.Count(); i++)
+                    {
+                        foreach (Movimento mov in card.Movimentos)
+                        {
+                            ValorSaldo += mov.ValordaCompra;
+                        }
+                    }
+                    int index = dataGridViewSaldo.Rows.Add();
+                    dataGridViewSaldo.Rows[index].Cells[0].Value = ValorSaldo;
+                    dataGridViewSaldo.Rows[index].Cells[0].Value = (int)ValorSaldo/50;
                 }
             }
-            int index = dataGridViewSaldo.Rows.Add();
-            dataGridViewSaldo.Rows[index].Cells[0].Value = ValorSaldo;
-            /////////////BUG////////////
+            
         }
     }
 }

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Trabalho_pratico
 {
+    [Serializable]
     public class Artigo
     {
         private string codigocartao;
@@ -36,12 +37,22 @@ namespace Trabalho_pratico
             set { quantidadestock = value; }
         }
 
-        public Artigo(string codigo, string descricao, float precounitario, int quantidadestock)
+        private string nome;
+
+        public string Nome
         {
-            this.Codigocartao = codigo;
-            this.Descricao = descricao;
-            this.Precounitario = precounitario;
-            this.Quantidadestock = quantidadestock;
+            get { return nome; }
+            set { nome = value; }
+        }
+
+
+        public Artigo(string codigo, string descricao, float precounitario, int quantidadestock, string nome)
+        {
+            this.codigocartao = codigo;
+            this.descricao = descricao;
+            this.precounitario = precounitario;
+            this.quantidadestock = quantidadestock;
+            this.nome = nome;
         }
     }
 }

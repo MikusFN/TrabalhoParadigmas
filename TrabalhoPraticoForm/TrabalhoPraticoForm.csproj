@@ -66,12 +66,17 @@
     <Compile Include="ConsultarSaldo.Designer.cs">
       <DependentUpon>ConsultarSaldo.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormAdicionarArtigo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAdicionarArtigo.Designer.cs">
+      <DependentUpon>FormAdicionarArtigo.cs</DependentUpon>
+    </Compile>
     <Compile Include="GerirArtigos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include=".Designer.cs">
+    <Compile Include="GerirArtigos.Designer.cs">
       <DependentUpon>GerirArtigos.cs</DependentUpon>
-      <SubType>Form</SubType>
     </Compile>
     <Compile Include="GerirPontos.cs">
       <SubType>Form</SubType>
@@ -102,6 +107,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ConsultarSaldo.resx">
       <DependentUpon>ConsultarSaldo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAdicionarArtigo.resx">
+      <DependentUpon>FormAdicionarArtigo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GerirArtigos.resx">
       <DependentUpon>GerirArtigos.cs</DependentUpon>

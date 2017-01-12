@@ -33,6 +33,8 @@
             this.buttonConsultarCompras = new System.Windows.Forms.Button();
             this.buttonConsultarSaldo = new System.Windows.Forms.Button();
             this.buttonRecuar = new System.Windows.Forms.Button();
+            this.dtGridGerirCartoes = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dtGridGerirCartoes)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonAtribuirCartão
@@ -90,11 +92,21 @@
             this.buttonRecuar.UseVisualStyleBackColor = true;
             this.buttonRecuar.Click += new System.EventHandler(this.buttonRecuar_Click);
             // 
+            // dtGridGerirCartoes
+            // 
+            this.dtGridGerirCartoes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtGridGerirCartoes.Location = new System.Drawing.Point(275, 51);
+            this.dtGridGerirCartoes.Name = "dtGridGerirCartoes";
+            this.dtGridGerirCartoes.ReadOnly = true;
+            this.dtGridGerirCartoes.Size = new System.Drawing.Size(376, 497);
+            this.dtGridGerirCartoes.TabIndex = 5;
+            // 
             // GerirPontos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 561);
+            this.ClientSize = new System.Drawing.Size(681, 572);
+            this.Controls.Add(this.dtGridGerirCartoes);
             this.Controls.Add(this.buttonRecuar);
             this.Controls.Add(this.buttonConsultarSaldo);
             this.Controls.Add(this.buttonConsultarCompras);
@@ -105,6 +117,7 @@
             this.Name = "GerirPontos";
             this.ShowIcon = false;
             this.Text = "GerirPontos";
+            ((System.ComponentModel.ISupportInitialize)(this.dtGridGerirCartoes)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -116,5 +129,6 @@
         private System.Windows.Forms.Button buttonConsultarCompras;
         private System.Windows.Forms.Button buttonConsultarSaldo;
         private System.Windows.Forms.Button buttonRecuar;
+        private System.Windows.Forms.DataGridView dtGridGerirCartoes;
     }
 }
