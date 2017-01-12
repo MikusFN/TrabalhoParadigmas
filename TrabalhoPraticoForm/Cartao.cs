@@ -41,9 +41,9 @@ namespace TrabalhoPratico
             set { morada = value; }
         }
 
-        private double telefone;
+        private string telefone;
 
-        public double Telefone
+        public string Telefone
         {
             get { return telefone; }
             set { telefone = value; }
@@ -72,8 +72,7 @@ namespace TrabalhoPratico
             get { return movimentos; }
             set { movimentos = value; }
         }
-
-        public Cartao(string nome, string cartaocidadao, string nif, string morada, double telefone, string email)
+        public Cartao(string nome, string cartaocidadao, string nif, string morada, string telefone, string email)
         {
             this.nome = nome;
             this.numeroCartaoCidadao = cartaocidadao;
@@ -106,21 +105,27 @@ namespace TrabalhoPratico
             set { descricao = value; }
         }
 
-        private int quantidade;
+        private string quantidade;
 
-        public int Quantidade
+        public string Quantidade
         {
             get { return quantidade; }
             set { quantidade = value; }
         }
 
-        private int valordaCompra;
+        private string valordaCompra;
 
-        public int ValordaCompra
+        public string ValordaCompra
         {
             get { return valordaCompra; }
             set { valordaCompra = value; }
         }
-
+        public Movimento(string codigodeArtigo, string descricao, string quantidade, string valordacompra)
+        {
+            this.codigodeArtigo = codigodeArtigo;
+            this.descricao = descricao;
+            this.quantidade = quantidade;
+            this.valordaCompra = valordacompra;
+        }
     }
 }

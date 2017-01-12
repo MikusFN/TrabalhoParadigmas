@@ -67,6 +67,43 @@ namespace TrabalhoPraticoForm
             }
             return sp;
         }
+        //AtribuirCartao
+        public void AtribuirCartao(Cartao cart)
+        {
+            if (cartao.ContainsKey(cart.NumeroCartaoCidadao))
+            {
+                throw new Exception("Verifique o numero do cartao de cidadao introduzido");
+            }
+            else if (cartao.ContainsKey(cart.NIF))
+            {
+                throw new Exception("Verifique o nif introduzido");
+            }
+            else if (cartao.ContainsKey(cart.Telefone))
+            {
+                throw new Exception("Verifique o numero de telefone introduzido");
+            }
+            else if (listaartigos.ContainsKey(cart.Email))
+            {
+                throw new Exception("Verifique o Email Introduzido");
+            }
+            else
+            {
+                this.cartao.Add(cart.Nome, cart);
+                this.cartao.Add(cart.NumeroCartaoCidadao, cart);
+                this.cartao.Add(cart.NIF, cart);
+                this.cartao.Add(cart.Morada, cart);
+                this.cartao.Add(cart.Telefone, cart);
+                this.cartao.Add(cart.Email, cart);
+            }
+        }
+        //AtribuirCompra
+        public void AtribuirCompra(Movimento mov)
+        {
+            this.movimentos.Add(mov.CodigodeArtigo, mov);
+            this.movimentos.Add(mov.Descricao, mov);
+            this.movimentos.Add(mov.Quantidade, mov);
+            this.movimentos.Add(mov.ValordaCompra, mov);
+        }
     }
 }
 //public void GuardarDados()//Para guardar ficheiros em exel.

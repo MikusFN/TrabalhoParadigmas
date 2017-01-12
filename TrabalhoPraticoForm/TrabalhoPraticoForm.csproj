@@ -47,13 +47,43 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Artigo.cs" />
+    <Compile Include="AtribuirCartao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AtribuirCartao.Designer.cs">
+      <DependentUpon>AtribuirCartao.cs</DependentUpon>
+    </Compile>
     <Compile Include="Cartao.cs" />
+    <Compile Include="ConsultarCompras.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConsultarCompras.Designer.cs">
+      <DependentUpon>ConsultarCompras.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ConsultarSaldo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConsultarSaldo.Designer.cs">
+      <DependentUpon>ConsultarSaldo.cs</DependentUpon>
+    </Compile>
     <Compile Include="GerirArtigos.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include=".Designer.cs">
       <DependentUpon>GerirArtigos.cs</DependentUpon>
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GerirPontos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GerirPontos.Designer.cs">
+      <DependentUpon>GerirPontos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RegistarCompras.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RegistarCompras.Designer.cs">
+      <DependentUpon>RegistarCompras.cs</DependentUpon>
     </Compile>
     <Compile Include="SuperDumeForm.cs">
       <SubType>Form</SubType>
@@ -64,8 +94,23 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SuperMercado.cs" />
+    <EmbeddedResource Include="AtribuirCartao.resx">
+      <DependentUpon>AtribuirCartao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConsultarCompras.resx">
+      <DependentUpon>ConsultarCompras.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConsultarSaldo.resx">
+      <DependentUpon>ConsultarSaldo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GerirArtigos.resx">
       <DependentUpon>GerirArtigos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GerirPontos.resx">
+      <DependentUpon>GerirPontos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RegistarCompras.resx">
+      <DependentUpon>RegistarCompras.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SuperDumeForm.resx">
       <DependentUpon>SuperDumeForm.cs</DependentUpon>
