@@ -14,7 +14,7 @@ namespace TrabalhoPraticoForm
     [Serializable]
     class SuperMercado
     {
-       
+        SuperMercado sm;
         private string nome;
         private Dictionary<string, Artigo> listaartigos;
         private List<Cartao> listaclientes;
@@ -39,12 +39,31 @@ namespace TrabalhoPraticoForm
         public SuperMercado CarregarDados()
         {
             SuperMercado sp = new SuperMercado("SuperDume");
-            if (File.Exists("SuperDume.bin"))
+            try
             {
-                Stream s = File.Open("SuperDume.bin", FileMode.Open);
-                BinaryFormatter bf = new BinaryFormatter();
-                sp = (SuperMercado)bf.Deserialize(s);
-                s.Close();
+
+                if (File.Exists("SuperDume.bin"))
+                {
+                    Stream s = File.Open("SuperDume.bin", FileMode.Open);
+                    BinaryFormatter bf = new BinaryFormatter();
+                    sp = (SuperMercado)bf.Deserialize(s);
+                    s.Close();
+
+                }
+
+            }
+
+            catch (FileNotFoundException fe)
+            {
+                Console.WriteLine("Ficheiro inexistente!");
+            }
+            catch (DirectoryNotFoundException de)
+            {
+                Console.WriteLine("Directoria invalida!");
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("ERRO!");
             }
             return sp;
         }
