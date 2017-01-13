@@ -117,6 +117,9 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SuperMercado.cs" />
+    <EmbeddedResource Include="ActualizarArtigo.mzn-IR.resx">
+      <DependentUpon>ActualizarArtigo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ActualizarArtigo.resx">
       <DependentUpon>ActualizarArtigo.cs</DependentUpon>
     </EmbeddedResource>
