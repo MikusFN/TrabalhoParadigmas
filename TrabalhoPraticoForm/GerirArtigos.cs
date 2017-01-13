@@ -112,7 +112,7 @@ namespace TrabalhoPraticoForm
                             {
                                 string codigo = r.Cells[0].Value.ToString();
                                 Artigo a = m.ListaArtigos[codigo];
-                                FormAlterarArtigo f = new FormAlterarArtigo(m, a);
+                                ActalizarArtigo f = new AlterarArtigo(m, a);
                                 f.ShowDialog();
 
                             }
