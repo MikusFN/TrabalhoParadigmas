@@ -96,6 +96,7 @@ namespace TrabalhoPratico
     }
 
     //Movimentos
+    [Serializable]
     public class Movimento
     {
         private string codigodeArtigo;

@@ -67,29 +67,29 @@ namespace TrabalhoPraticoForm
         
        
         //AtribuirCartao
-        //public void AtribuirCartao(Cartao cart)
-        //{
-        //    foreach (Cartao c in listaclientes)
-        //    {
-        //        if (c.NumeroCartaoCidadao == cart.NumeroCartaoCidadao)
-        //        {
-        //            throw new Exception("Um cliente já se registou com este Cartão de Cidadão. Tente outro por favor.");
-        //        }
-        //        else if (c.NIF == cart.NIF)
-        //        {
-        //            throw new Exception("Um cliente já se registou com este NIF. Tente outro por favor.");
-        //        }
-        //        else if (c.Telefone == cart.Telefone)
-        //        {
-        //            throw new Exception("Um cliente já se registou com este Telefone. Tente outro por favor.");
-        //        }
-        //        else if (c.Email == cart.Email)
-        //        {
-        //            throw new Exception("Um cliente já se registou com este email. Tente outro por favor.");
-        //        }
-        //     }
-        //     listaclientes.Add(cart);
-        //}
+        public void AtribuirCartao(Cartao cart)
+        {
+            foreach (Cartao c in listaclientes)
+            {
+                if (c.NumeroCartaoCidadao == cart.NumeroCartaoCidadao)
+                {
+                    throw new Exception("Um cliente já se registou com este Cartão de Cidadão. Tente outro por favor.");
+                }
+                else if (c.NIF == cart.NIF)
+                {
+                    throw new Exception("Um cliente já se registou com este NIF. Tente outro por favor.");
+                }
+                else if (c.Telefone == cart.Telefone)
+                {
+                    throw new Exception("Um cliente já se registou com este Telefone. Tente outro por favor.");
+                }
+                else if (c.Email == cart.Email)
+                {
+                    throw new Exception("Um cliente já se registou com este email. Tente outro por favor.");
+                }
+             }
+            listaclientes.Add(cart);
+        }
         ////AtribuirCompra
         //public static void GuardarDados(SuperMercado sp)
         //{

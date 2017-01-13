@@ -33,6 +33,7 @@
             this.btRemoverArt = new System.Windows.Forms.Button();
             this.btAlterarArtigo = new System.Windows.Forms.Button();
             this.lbGerirArtigos = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtGridArtigos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -41,6 +42,8 @@
             this.dtGridArtigos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtGridArtigos.Location = new System.Drawing.Point(12, 36);
             this.dtGridArtigos.Name = "dtGridArtigos";
+            this.dtGridArtigos.ReadOnly = true;
+            this.dtGridArtigos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtGridArtigos.Size = new System.Drawing.Size(393, 467);
             this.dtGridArtigos.TabIndex = 0;
             // 
@@ -72,6 +75,7 @@
             this.btAlterarArtigo.TabIndex = 3;
             this.btAlterarArtigo.Text = "Alterar Artigo";
             this.btAlterarArtigo.UseVisualStyleBackColor = true;
+            this.btAlterarArtigo.Click += new System.EventHandler(this.btAlterarArtigo_Click);
             // 
             // lbGerirArtigos
             // 
@@ -82,11 +86,22 @@
             this.lbGerirArtigos.TabIndex = 4;
             this.lbGerirArtigos.Text = "Artigos";
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(459, 337);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(115, 23);
+            this.button1.TabIndex = 5;
+            this.button1.Text = "Recuar";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // GerirArtigos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(757, 530);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.lbGerirArtigos);
             this.Controls.Add(this.btAlterarArtigo);
             this.Controls.Add(this.btRemoverArt);
@@ -107,5 +122,6 @@
         private System.Windows.Forms.Button btRemoverArt;
         private System.Windows.Forms.Button btAlterarArtigo;
         private System.Windows.Forms.Label lbGerirArtigos;
+        private System.Windows.Forms.Button button1;
     }
 }

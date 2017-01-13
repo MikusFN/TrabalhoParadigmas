@@ -13,11 +13,11 @@ namespace TrabalhoPraticoForm
 {
     public partial class FormAdicionarArtigo : Form
     {
-        SuperMercado s;
+        SuperMercado m;
         public FormAdicionarArtigo(SuperMercado s)
         {
             InitializeComponent();
-            this.s = s;
+            this.m = s;
         }
 
         private void btnAdicionarArtigo_Click(object sender, EventArgs e)
@@ -32,7 +32,7 @@ namespace TrabalhoPraticoForm
                 else
                 if (txtBoxNomeArtigo.Text == "")
                 {
-                    MessageBox.Show("Preencha o Codigo do Artigo", "Erro");
+                    MessageBox.Show("Preencha o Nome do Artigo", "Erro");
                     txtBoxNomeArtigo.Focus();
                 }
                 else
@@ -43,14 +43,14 @@ namespace TrabalhoPraticoForm
                     string comentario = richtxtDescricao.Text;
                     string nome = txtBoxNomeArtigo.Text;
                     Artigo art = new Artigo(codigo, comentario, preco, quantidadestock,nome);
-                    s.AdicionarArtigo(art);
-                    MessageBox.Show("Emprestimo criado com sucesso!");
+                    m.AdicionarArtigo(art);
+                    MessageBox.Show("Artigo criado com sucesso!");
                     Close();
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erro" + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -64,7 +64,7 @@ namespace TrabalhoPraticoForm
             
             if (!n)
             {
-                throw new Exception("Insira um número");
+                throw new Exception("Insira um valor numérico para o preço");
             }
             return y;
         }
@@ -74,12 +74,12 @@ namespace TrabalhoPraticoForm
             bool n = false;
             string o = "";
             int y;
-            o = txtBoxPreco.Text;
+            o = txtBoxQuantidade.Text;
             n = int.TryParse(o, out y);
 
             if (!n)
             {
-                throw new Exception("Insira um número");
+                throw new Exception("Insira um valor numérico para o stock");
             }
             return y;
         }

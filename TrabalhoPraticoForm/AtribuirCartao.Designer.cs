@@ -54,7 +54,7 @@
             // 
             // buttoConcluir
             // 
-            this.buttoConcluir.Location = new System.Drawing.Point(180, 501);
+            this.buttoConcluir.Location = new System.Drawing.Point(182, 429);
             this.buttoConcluir.Name = "buttoConcluir";
             this.buttoConcluir.Size = new System.Drawing.Size(75, 23);
             this.buttoConcluir.TabIndex = 1;

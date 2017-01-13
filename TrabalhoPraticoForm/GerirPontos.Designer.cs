@@ -34,6 +34,7 @@
             this.buttonConsultarSaldo = new System.Windows.Forms.Button();
             this.buttonRecuar = new System.Windows.Forms.Button();
             this.dtGridGerirCartoes = new System.Windows.Forms.DataGridView();
+            this.btAlterarCartao = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtGridGerirCartoes)).BeginInit();
             this.SuspendLayout();
             // 
@@ -43,14 +44,14 @@
             this.buttonAtribuirCartão.Name = "buttonAtribuirCartão";
             this.buttonAtribuirCartão.Size = new System.Drawing.Size(124, 23);
             this.buttonAtribuirCartão.TabIndex = 0;
-            this.buttonAtribuirCartão.Text = "Atribuir Cartão";
+            this.buttonAtribuirCartão.Text = "Adicionar um Cartão";
             this.buttonAtribuirCartão.UseMnemonic = false;
             this.buttonAtribuirCartão.UseVisualStyleBackColor = true;
             this.buttonAtribuirCartão.Click += new System.EventHandler(this.button1_Click);
             // 
             // buttonRegistarCompras
             // 
-            this.buttonRegistarCompras.Location = new System.Drawing.Point(78, 174);
+            this.buttonRegistarCompras.Location = new System.Drawing.Point(78, 205);
             this.buttonRegistarCompras.Name = "buttonRegistarCompras";
             this.buttonRegistarCompras.Size = new System.Drawing.Size(124, 23);
             this.buttonRegistarCompras.TabIndex = 1;
@@ -98,14 +99,26 @@
             this.dtGridGerirCartoes.Location = new System.Drawing.Point(275, 51);
             this.dtGridGerirCartoes.Name = "dtGridGerirCartoes";
             this.dtGridGerirCartoes.ReadOnly = true;
+            this.dtGridGerirCartoes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtGridGerirCartoes.Size = new System.Drawing.Size(376, 497);
             this.dtGridGerirCartoes.TabIndex = 5;
+            // 
+            // btAlterarCartao
+            // 
+            this.btAlterarCartao.Location = new System.Drawing.Point(78, 134);
+            this.btAlterarCartao.Name = "btAlterarCartao";
+            this.btAlterarCartao.Size = new System.Drawing.Size(124, 23);
+            this.btAlterarCartao.TabIndex = 6;
+            this.btAlterarCartao.Text = "Alterar Informações";
+            this.btAlterarCartao.UseVisualStyleBackColor = true;
+            this.btAlterarCartao.Click += new System.EventHandler(this.btAlterarCartao_Click);
             // 
             // GerirPontos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(681, 572);
+            this.Controls.Add(this.btAlterarCartao);
             this.Controls.Add(this.dtGridGerirCartoes);
             this.Controls.Add(this.buttonRecuar);
             this.Controls.Add(this.buttonConsultarSaldo);
@@ -130,5 +143,6 @@
         private System.Windows.Forms.Button buttonConsultarSaldo;
         private System.Windows.Forms.Button buttonRecuar;
         private System.Windows.Forms.DataGridView dtGridGerirCartoes;
+        private System.Windows.Forms.Button btAlterarCartao;
     }
 }

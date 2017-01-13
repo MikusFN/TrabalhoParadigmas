@@ -44,15 +44,16 @@
             // 
             // textBoxValor
             // 
-            this.textBoxValor.Location = new System.Drawing.Point(124, 215);
+            this.textBoxValor.Location = new System.Drawing.Point(460, 335);
             this.textBoxValor.Name = "textBoxValor";
-            this.textBoxValor.Size = new System.Drawing.Size(100, 20);
+            this.textBoxValor.ReadOnly = true;
+            this.textBoxValor.Size = new System.Drawing.Size(51, 20);
             this.textBoxValor.TabIndex = 16;
             // 
             // labelValor
             // 
             this.labelValor.AutoSize = true;
-            this.labelValor.Location = new System.Drawing.Point(41, 215);
+            this.labelValor.Location = new System.Drawing.Point(370, 335);
             this.labelValor.Name = "labelValor";
             this.labelValor.Size = new System.Drawing.Size(84, 13);
             this.labelValor.TabIndex = 15;
@@ -128,7 +129,7 @@
             // 
             // btAdicionarCompra
             // 
-            this.btAdicionarCompra.Location = new System.Drawing.Point(437, 371);
+            this.btAdicionarCompra.Location = new System.Drawing.Point(194, 239);
             this.btAdicionarCompra.Name = "btAdicionarCompra";
             this.btAdicionarCompra.Size = new System.Drawing.Size(139, 23);
             this.btAdicionarCompra.TabIndex = 21;

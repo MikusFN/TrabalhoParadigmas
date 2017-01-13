@@ -16,13 +16,14 @@ namespace TrabalhoPraticoForm
         string codigo;
         Movimento mov;
         SuperMercado mercado;
+        float ValorGasto;
 
         public ConsultarSaldo(string codigo,SuperMercado mercado)
         {
             InitializeComponent();
-            CriaTabela();
             this.codigo = codigo;
             this.mercado = mercado;
+            CriaTabela();
         }
         //Recuar 
         private void buttonRecuar_Click(object sender, EventArgs e)
@@ -38,21 +39,18 @@ namespace TrabalhoPraticoForm
             // cria as colunas relevantes para os livros
             dataGridViewSaldo.Columns.Add("Quantia Gasta", "Quantia Gasta");
             dataGridViewSaldo.Columns.Add("Pontos", "Pontos");
-            float ValorSaldo = 0;
             foreach (Cartao card in mercado.ListaClientes)
             {
                 if (card.NumeroCartaoCidadao == codigo)
                 {
                     for (int i = 0; i < card.Movimentos.Count(); i++)
                     {
-                        foreach (Movimento mov in card.Movimentos)
-                        {
-                            ValorSaldo += mov.ValordaCompra;
-                        }
+                        mov = card.Movimentos[i];
+                        ValorGasto += mov.ValordaCompra;
                     }
                     int index = dataGridViewSaldo.Rows.Add();
-                    dataGridViewSaldo.Rows[index].Cells[0].Value = ValorSaldo;
-                    dataGridViewSaldo.Rows[index].Cells[0].Value = (int)ValorSaldo/50;
+                    dataGridViewSaldo.Rows[index].Cells[0].Value = ValorGasto;
+                    dataGridViewSaldo.Rows[index].Cells[1].Value = card.Pontos;
                 }
             }
             

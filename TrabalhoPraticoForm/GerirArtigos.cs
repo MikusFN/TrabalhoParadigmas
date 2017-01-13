@@ -17,8 +17,9 @@ namespace TrabalhoPraticoForm
         public GerirArtigos(SuperMercado m)
         {
             InitializeComponent();
-            CriaTabela();
             this.m = m;
+            CriaTabela();
+            
             
         }
 
@@ -67,6 +68,35 @@ namespace TrabalhoPraticoForm
             FormAdicionarArtigo f = new FormAdicionarArtigo(m);
             f.ShowDialog();
             CriaTabela();
+        }
+
+        private void btAlterarArtigo_Click(object sender, EventArgs e)
+        {
+            if (dtGridArtigos.SelectedRows.Count > 0)
+            {
+                if (MessageBox.Show("Tem a certeza que pretende alterar o artigo selecionado?", "Alterar", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
+                {
+                    {
+                        DataGridViewSelectedRowCollection selecionados = dtGridArtigos.SelectedRows;
+                        foreach (DataGridViewRow r in selecionados)
+                        {
+                            string codigo = r.Cells[0].Value.ToString();
+                            Artigo a = m.ListaArtigos[codigo];
+                            FormAlterarArtigo f = new FormAlterarArtigo(m, a);
+                            f.ShowDialog();
+
+                        }
+                        CriaTabela();
+                    }
+                }
+            }
+            
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

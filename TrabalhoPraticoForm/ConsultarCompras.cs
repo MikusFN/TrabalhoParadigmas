@@ -19,10 +19,10 @@ namespace TrabalhoPraticoForm
         {
             InitializeComponent();
             //Criar a tabela mal se entre nesta janela
-            CriaTabela();
             this.m = m;
             this.codigo = codigo;
-            
+            CriaTabela();
+
         }
         
         //Criar Tabela para Consulta

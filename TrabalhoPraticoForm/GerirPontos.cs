@@ -46,6 +46,7 @@ namespace TrabalhoPraticoForm
         {
             AtribuirCartao f = new AtribuirCartao(Mercado);
             f.ShowDialog();
+            CriaTabela();
         }
         //RegistarCompras
         private void buttonRegistarCompras_Click(object sender, EventArgs e)
@@ -60,7 +61,7 @@ namespace TrabalhoPraticoForm
                     {
                         if (c.NumeroCartaoCidadao == codigo)
                         {
-                            RegistarCompras f = new RegistarCompras(c);
+                            RegistarCompras f = new RegistarCompras(c,Mercado);
                             f.ShowDialog();
                         }
                     }
@@ -105,7 +106,7 @@ namespace TrabalhoPraticoForm
         {
             this.Close();
         }
-        //Consultar Saldo
+        //Consultar Gastos
         private void buttonConsultarSaldo_Click(object sender, EventArgs e)
         {
             if (dtGridGerirCartoes.SelectedRows.Count > 0)
@@ -116,6 +117,28 @@ namespace TrabalhoPraticoForm
                     string codigo = r.Cells[1].Value.ToString();
                     ConsultarSaldo d = new ConsultarSaldo(codigo, Mercado);
                     d.ShowDialog();
+                }
+                CriaTabela();
+            }
+        }
+
+        private void btAlterarCartao_Click(object sender, EventArgs e)
+        {
+            if (dtGridGerirCartoes.SelectedRows.Count > 0)
+            {
+                DataGridViewSelectedRowCollection selecionados = dtGridGerirCartoes.SelectedRows;
+                foreach (DataGridViewRow r in selecionados)
+                {
+                    string codigo = r.Cells[1].Value.ToString();
+                    foreach(Cartao c in Mercado.ListaClientes)
+                    {
+                        if (c.NumeroCartaoCidadao == codigo)
+                        {
+                            AlterarCartao d = new AlterarCartao(c, Mercado);
+                            d.ShowDialog();
+                        }
+                    }
+                    
                 }
                 CriaTabela();
             }
