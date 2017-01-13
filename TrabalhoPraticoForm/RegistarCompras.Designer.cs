@@ -40,6 +40,7 @@
             this.listbxCompras = new System.Windows.Forms.ListBox();
             this.btAdicionarCompra = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.buttonRecuar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numericQuantidade)).BeginInit();
             this.SuspendLayout();
             // 
@@ -101,7 +102,7 @@
             // buttonConcluirRegistar
             // 
             this.buttonConcluirRegistar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonConcluirRegistar.Location = new System.Drawing.Point(135, 450);
+            this.buttonConcluirRegistar.Location = new System.Drawing.Point(135, 408);
             this.buttonConcluirRegistar.Name = "buttonConcluirRegistar";
             this.buttonConcluirRegistar.Size = new System.Drawing.Size(150, 30);
             this.buttonConcluirRegistar.TabIndex = 6;
@@ -153,11 +154,23 @@
             this.label1.TabIndex = 26;
             this.label1.Text = "Registar Compras:";
             // 
+            // buttonRecuar
+            // 
+            this.buttonRecuar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonRecuar.Location = new System.Drawing.Point(135, 493);
+            this.buttonRecuar.Name = "buttonRecuar";
+            this.buttonRecuar.Size = new System.Drawing.Size(150, 30);
+            this.buttonRecuar.TabIndex = 27;
+            this.buttonRecuar.Text = "Recuar";
+            this.buttonRecuar.UseVisualStyleBackColor = true;
+            this.buttonRecuar.Click += new System.EventHandler(this.buttonRecuar_Click);
+            // 
             // RegistarCompras
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(700, 550);
+            this.Controls.Add(this.buttonRecuar);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btAdicionarCompra);
             this.Controls.Add(this.listbxCompras);
@@ -194,5 +207,6 @@
         private System.Windows.Forms.ListBox listbxCompras;
         private System.Windows.Forms.Button btAdicionarCompra;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button buttonRecuar;
     }
 }

@@ -13,6 +13,7 @@ namespace TrabalhoPraticoForm
 {
     public partial class FormAlterarArtigo : Form
     {
+        //Variaveis
         SuperMercado m;
         Artigo a;
         public FormAlterarArtigo(SuperMercado m, Artigo a)
@@ -20,6 +21,7 @@ namespace TrabalhoPraticoForm
             InitializeComponent();
             this.m = m;
             this.a = a;
+            //Pagina vem com coisas escritas nas text boxes
             txtBoxCodigoArtigo2.Text = a.Codigocartao;
             txtBoxNomeArtigo2.Text = a.Nome;
             txtBoxPreco2.Text = a.Precounitario.ToString("0.00");
@@ -27,6 +29,7 @@ namespace TrabalhoPraticoForm
 
         }
 
+        //Confirmar que o usuario poe um float
         public float ConfirmaFloat()
         {
             bool n = false;
@@ -43,6 +46,7 @@ namespace TrabalhoPraticoForm
             return y;
         }
 
+        //Confirmar que o usuario poe um inteiro
         public int ConfirmaInt()
         {
             bool n = false;
@@ -58,12 +62,14 @@ namespace TrabalhoPraticoForm
             return y;
         }
 
+        //Alterar o artigo
         private void btnAlterarArtigo_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Pretende guardar as alterações", "Guardar", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
             {
                 try
                 {
+                    //Confirma que nao estao em branco
                     if (txtBoxCodigoArtigo2.Text == "")
                     {
                         MessageBox.Show("Preencha o Codigo do Artigo", "Erro");
@@ -77,6 +83,7 @@ namespace TrabalhoPraticoForm
                     }
                     else
                     {
+                        //Alterar
                         a.Codigocartao = txtBoxCodigoArtigo2.Text;
                         a.Precounitario = ConfirmaFloat();
                         a.Quantidadestock = ConfirmaInt();

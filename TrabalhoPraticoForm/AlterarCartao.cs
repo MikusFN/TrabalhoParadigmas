@@ -13,6 +13,7 @@ namespace TrabalhoPraticoForm
 {
     public partial class AlterarCartao : Form
     {
+        //Mercado e Cartao
         SuperMercado m;
         Cartao c;
         public AlterarCartao(Cartao c, SuperMercado m)
@@ -20,6 +21,7 @@ namespace TrabalhoPraticoForm
             InitializeComponent();
             this.c = c;
             this.m = m;
+            //A pagina vai abrir logo com coisas escritas
             textBoCartao2.Text = c.NumeroCartaoCidadao;
             textBoNome2.Text = c.Nome;
             textBoEmail2.Text = c.Email;
@@ -28,6 +30,7 @@ namespace TrabalhoPraticoForm
             textBoTelefone2.Text = c.Telefone;
         }
 
+        //Para alterar
         private void buttoAlterar_Click(object sender, EventArgs e)
         {
             {
@@ -70,7 +73,6 @@ namespace TrabalhoPraticoForm
                         MessageBox.Show("Preencha o campo do Email");
                         textBoEmail2.Focus();
                     }
-                    //converter o texto introduzido para as variaveis
                     else
                     {
                         c.Nome = textBoNome2.Text;

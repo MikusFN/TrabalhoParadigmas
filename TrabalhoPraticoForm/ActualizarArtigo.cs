@@ -13,6 +13,7 @@ namespace TrabalhoPraticoForm
 {
     public partial class Actualizar_Artigo : Form
     {
+        //Declarar Mercado
         SuperMercado m;
         public Actualizar_Artigo(SuperMercado m)
         {
@@ -20,6 +21,7 @@ namespace TrabalhoPraticoForm
             this.m = m;
             CriaTabela();
         }
+        //Criar Grid
         private void CriaTabela()
         {
             dataGridView1.Columns.Clear();
@@ -39,11 +41,13 @@ namespace TrabalhoPraticoForm
 
         }
 
+        //Codigo Useless
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)
         {
 
         }
 
+        //Aumentar stock
         private void btAtualizar_Click(object sender, EventArgs e)
         {
             if (dataGridView1.SelectedRows.Count > 0)
@@ -74,11 +78,12 @@ namespace TrabalhoPraticoForm
                 }
             }
         }
-
+        //Useless
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
         }
+        //Confirmar que o usuario pos um inteiro
         public int ConfirmaInt()
         {
             bool n = false;
@@ -94,7 +99,7 @@ namespace TrabalhoPraticoForm
             return y;
         }
 
-
+        //Retirar stock
         private void btRetirar_Click(object sender, EventArgs e)
         {
             if (dataGridView1.SelectedRows.Count > 0)
@@ -116,7 +121,7 @@ namespace TrabalhoPraticoForm
                                     txtAtualizar.Clear();
 
                                 }
-                                else
+                                else //Caso Nao tenha stock suficiente
                                 {
                                     MessageBox.Show("Stock Insuficiente!");
                                     txtAtualizar.Focus();
@@ -133,7 +138,7 @@ namespace TrabalhoPraticoForm
                 }
             }
         }
-
+        //Fecha janela
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();

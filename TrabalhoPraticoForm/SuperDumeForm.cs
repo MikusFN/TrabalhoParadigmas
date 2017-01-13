@@ -14,6 +14,7 @@ namespace TrabalhoPraticoForm
 {
     public partial class SuperDume : Form
     {
+        //SuperMercado
         SuperMercado sm;
         public SuperDume()
         {
@@ -22,6 +23,7 @@ namespace TrabalhoPraticoForm
             sm = CarregaMercado();
         }
 
+        //Carrega o Mercado
         public SuperMercado CarregaMercado()
         {
             SuperMercado sm = new SuperMercado("M");
@@ -36,6 +38,7 @@ namespace TrabalhoPraticoForm
             return sm;
         }
 
+        //Grava o progresso
         public static void Guardar(SuperMercado m)
         {
             try
@@ -59,6 +62,7 @@ namespace TrabalhoPraticoForm
             }
         }
 
+        //Ao fechar grava
         private void SuperDume_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (MessageBox.Show("Tem a certeza que pretende sair?", "Sair?", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
@@ -72,7 +76,7 @@ namespace TrabalhoPraticoForm
             }
 
         }
-
+        //Botao para carregar informaçao
         private void CarregarFicheiro_Click(object sender, EventArgs e)
         {
             try
@@ -83,8 +87,8 @@ namespace TrabalhoPraticoForm
             {
                 MessageBox.Show(ex.Message);
             }
-}
-
+        }
+        //Botao para guardar informaçao
         private void GuardarFicheiro_Click(object sender, EventArgs e)
         {
             try
@@ -97,6 +101,7 @@ namespace TrabalhoPraticoForm
             }
         }
 
+        //Gerir artigos
         private void btGerirArtigos_Click(object sender, EventArgs e)
         {
             GerirArtigos f = new GerirArtigos(sm);
@@ -104,12 +109,14 @@ namespace TrabalhoPraticoForm
             
         }
 
+        //Gerir cartoes
         private void btGerirCartoes_Click(object sender, EventArgs e)
         {
             GerirPontos f = new GerirPontos(sm);
             f.ShowDialog();
         }
 
+        //fechar
         private void button1_Click(object sender, EventArgs e)
         {
             Close();

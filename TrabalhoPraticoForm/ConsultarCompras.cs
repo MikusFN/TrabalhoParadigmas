@@ -13,6 +13,7 @@ namespace TrabalhoPraticoForm
 {
     public partial class ConsultarCompras : Form
     {
+        //Inicializar um SuperMercado e uma string(Key)
         SuperMercado m;
         string codigo;
         public ConsultarCompras(string codigo,SuperMercado m)
@@ -54,7 +55,7 @@ namespace TrabalhoPraticoForm
                 }
             }
         }
-        //Butao Recuar
+        //Botão Recuar
         private void buttonRecuar_Click(object sender, EventArgs e)
         {
             //Recuar para GerirPontos

@@ -13,6 +13,7 @@ namespace TrabalhoPraticoForm
 {
     public partial class ConsultarSaldo : Form
     {
+        //Variaveis
         string codigo;
         Movimento mov;
         SuperMercado mercado;
@@ -45,6 +46,7 @@ namespace TrabalhoPraticoForm
                 {
                     for (int i = 0; i < card.Movimentos.Count(); i++)
                     {
+                        //Adiciona um movimento e altera o valor escrito no ecra
                         mov = card.Movimentos[i];
                         ValorGasto += mov.ValordaCompra;
                     }

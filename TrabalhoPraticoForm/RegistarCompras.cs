@@ -14,6 +14,7 @@ namespace TrabalhoPraticoForm
 {
     public partial class RegistarCompras : Form
     {
+        //Variaveis
         SuperMercado M;
         Cartao cartao;
         float valorescrito;
@@ -23,10 +24,12 @@ namespace TrabalhoPraticoForm
             InitializeComponent();
             this.cartao = cartao;
             M = Mercado;
+            //Load dos Artigos
             comboBoxArtigos.Items.AddRange(this.M.ListaArtigos.Keys.ToArray());
             
         }
        
+        //Concluir o registo
         private void buttonConcluirRegistar_Click(object sender, EventArgs e)
         {
             {
@@ -40,21 +43,25 @@ namespace TrabalhoPraticoForm
             }
         }
 
+        //Adicionar combra
         private void btAdicionarCompra_Click(object sender, EventArgs e)
         {
             try
             {
+                //Artigo e a quantidade nao podem ser 0
                 if (((string)comboBoxArtigos.SelectedItem != "0") && ((int)numericQuantidade.Value != 0))
                 {
                     Artigo art = M.ListaArtigos[(string)comboBoxArtigos.SelectedItem];
                     string Codigo = art.Codigocartao;
                     string Descricao = textBoxDescricao.Text;
                     int Quantidade = (int)numericQuantidade.Value;
+                    //A quantidade nao pode ser maior que o stock
                     if (Quantidade <= art.Quantidadestock)
                     {
                         float valor = (float)(Quantidade * art.Precounitario);
                         Movimento mov = new Movimento(Codigo, Descricao, Quantidade, valor);
                         string nome = art.Nome;
+                        //Tira o stock AUTOMATICAMENTE
                         foreach (Artigo a in M.ListaArtigos.Values)
                         {
                             if (a.Codigocartao == Codigo)
@@ -64,6 +71,7 @@ namespace TrabalhoPraticoForm
                             }
                         }
                         movimentostemp.Add(mov);
+                        //valorescrito no ecra e atualizado para o utilizador saber quanto esta a desperdiçar
                         valorescrito += valor;
                         listbxCompras.Items.Add(nome);
                     }
@@ -90,6 +98,7 @@ namespace TrabalhoPraticoForm
             textBoxValor.Text += valorescrito.ToString("0.00");
         }
 
+        //O utilizador so pdoe escolher entre 0 e o numero maximo do stock do artigo
         private void numericQuantidade_ValueChanged(object sender, EventArgs e)
         {
             string codigo = (string)comboBoxArtigos.SelectedItem;
@@ -97,6 +106,11 @@ namespace TrabalhoPraticoForm
             Artigo art = M.ListaArtigos[codigo];
 
             numericQuantidade.Maximum = art.Quantidadestock;
+        }
+
+        private void buttonRecuar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

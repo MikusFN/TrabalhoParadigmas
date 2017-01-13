@@ -14,6 +14,7 @@ namespace TrabalhoPraticoForm
 {
     public partial class AtribuirCartao : Form
     {
+        //Mercado
         SuperMercado Mercado;
         public AtribuirCartao(SuperMercado m)
         {
@@ -26,6 +27,7 @@ namespace TrabalhoPraticoForm
 
         }
 
+        //Concluir a adiçao
         private void buttoConcluir_Click(object sender, EventArgs e)
         {
             {
@@ -35,7 +37,7 @@ namespace TrabalhoPraticoForm
                     //C.C
                     if (textBoCartao.Text.Trim().Equals(""))
                     {
-                        MessageBox.Show("Preencha o campo Cartao de Cidadao");
+                        MessageBox.Show("Preencha o campo Cartão de Cidadão");
                         textBoCartao.Focus();
                     }
                     //NOME

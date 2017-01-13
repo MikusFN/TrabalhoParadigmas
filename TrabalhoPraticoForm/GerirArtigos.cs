@@ -13,6 +13,7 @@ namespace TrabalhoPraticoForm
 {
     public partial class GerirArtigos : Form
     {
+        //SuperMercado
         SuperMercado m;
         public GerirArtigos(SuperMercado m)
         {
@@ -23,6 +24,7 @@ namespace TrabalhoPraticoForm
             
         }
 
+        //Tabela com os artigos
         private void CriaTabela()
         {
             dtGridArtigos.Columns.Clear();
@@ -42,7 +44,7 @@ namespace TrabalhoPraticoForm
 
         }
 
-
+        //Remover artigo ao selecionar um na grelha
         private void btRemoverArt_Click(object sender, EventArgs e)
         {
             if (dtGridArtigos.SelectedRows.Count > 0)
@@ -63,6 +65,7 @@ namespace TrabalhoPraticoForm
             }
         }
 
+        //Manda para a pagina adicionar artigo
         private void btAdicionarArt_Click(object sender, EventArgs e)
         {
             FormAdicionarArtigo f = new FormAdicionarArtigo(m);
@@ -70,6 +73,7 @@ namespace TrabalhoPraticoForm
             CriaTabela();
         }
 
+        //Manda para a pagina alterar artigo
         private void btAlterarArtigo_Click(object sender, EventArgs e)
         {
             if (dtGridArtigos.SelectedRows.Count > 0)
@@ -94,11 +98,12 @@ namespace TrabalhoPraticoForm
 
         }
 
+        //Volta atraz
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-
+        //Manda para a pagina atualizar o stock dos artigos
         private void button2_Click(object sender, EventArgs e)
         {
             Actualizar_Artigo f = new Actualizar_Artigo(m);

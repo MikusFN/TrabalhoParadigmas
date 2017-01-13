@@ -13,6 +13,7 @@ namespace TrabalhoPraticoForm
 {
     public partial class FormAdicionarArtigo : Form
     {
+        //SuperMercado
         SuperMercado m;
         public FormAdicionarArtigo(SuperMercado s)
         {
@@ -20,10 +21,12 @@ namespace TrabalhoPraticoForm
             this.m = s;
         }
 
+        //Adicionar Artigo
         private void btnAdicionarArtigo_Click(object sender, EventArgs e)
         {
             try
             { 
+                //Campos que nao podem estar vazios
                 if (txtBoxCodigoArtigo.Text == "")
                 {
                     MessageBox.Show("Preencha o Codigo do Artigo", "Erro");
@@ -37,6 +40,7 @@ namespace TrabalhoPraticoForm
                 }
                 else
                 {
+                    //Criar um artigo novo e adiciona-lo a lista
                     string codigo = txtBoxCodigoArtigo.Text;
                     float preco = ConfirmaFloat();
                     int quantidadestock = ConfirmaInt();
@@ -54,6 +58,7 @@ namespace TrabalhoPraticoForm
             }
         }
 
+        //Confirmar que o usuario poe um float
         public float ConfirmaFloat()
         {
             bool n = false;
@@ -68,7 +73,7 @@ namespace TrabalhoPraticoForm
             }
             return y;
         }
-
+        //Confirmar que o usuario poe um inteiro
         public int ConfirmaInt()
         {
             bool n = false;

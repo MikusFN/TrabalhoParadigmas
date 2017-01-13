@@ -6,9 +6,11 @@ using System.Threading.Tasks;
 
 namespace Trabalho_pratico
 {
+    //Pode ser transformada em binario
     [Serializable]
     public class Artigo
     {
+        //Atributos
         private string codigocartao;
         public string Codigocartao
         {
@@ -45,7 +47,7 @@ namespace Trabalho_pratico
             set { nome = value; }
         }
 
-
+        //Construtor
         public Artigo(string codigo, string descricao, float precounitario, int quantidadestock, string nome)
         {
             this.codigocartao = codigo;

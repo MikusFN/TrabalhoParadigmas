@@ -15,6 +15,7 @@ namespace TrabalhoPraticoForm
     [Serializable]
     public class SuperMercado
     {
+        //Atributos
         private Dictionary<string,Artigo> listaartigos;
 
         public Dictionary<string,Artigo> ListaArtigos
@@ -40,7 +41,7 @@ namespace TrabalhoPraticoForm
         }
         public DateTime Today { get; }
 
-
+        //Construtor
         public SuperMercado(string nome)
         {
             this.nome = nome;
@@ -48,6 +49,7 @@ namespace TrabalhoPraticoForm
             this.listaclientes = new List<Cartao>();
         }
        
+        //Adicionar Artigo
         public void AdicionarArtigo(Artigo a)
         {
             if (listaartigos.ContainsValue(a))
@@ -57,6 +59,7 @@ namespace TrabalhoPraticoForm
             listaartigos.Add(a.Codigocartao, a);
         }
 
+        //Remover Artigo
         public void RemoverArtigo(string codigo)
         {
             if (ListaArtigos.ContainsKey(codigo))
@@ -66,7 +69,7 @@ namespace TrabalhoPraticoForm
         }
         
        
-        //AtribuirCartao
+        //Atribuir Cartao
         public void AtribuirCartao(Cartao cart)
         {
             foreach (Cartao c in listaclientes)
@@ -90,6 +93,29 @@ namespace TrabalhoPraticoForm
              }
             listaclientes.Add(cart);
         }
+        //Exportar Informaçoes ---- Opcional/Nao foi chamado
+        public void ExportarInformacoes()
+        {
+            StreamWriter sw = new StreamWriter("basededados.cfv");
+            foreach (Artigo art in listaartigos.Values)
+            {
+                sw.Write(art.Codigocartao + "," + art.Nome + "," + art.Precounitario + "," + art.Quantidadestock + ",");
+                
+                sw.WriteLine();
+            }
+            foreach (Cartao cart in listaclientes)
+            {
+                sw.Write(cart.NumeroCartaoCidadao + "," + cart.Nome + "," + cart.Pontos + "," + cart.Telefone + "," + "," + cart.NIF + "," + "," + cart.Morada + ",");
+                foreach (Movimento mov in cart.Movimentos)
+                {
+                    sw.Write(mov.CodigodeArtigo + ";" + mov.Quantidade + ";" + mov.ValordaCompra);
+                }
+                sw.WriteLine();
+            }
+            sw.Close();
+        }
+
+        //TESTES
         ////AtribuirCompra
         //public static void GuardarDados(SuperMercado sp)
         //{

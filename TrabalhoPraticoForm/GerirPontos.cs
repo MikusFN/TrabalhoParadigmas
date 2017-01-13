@@ -14,6 +14,7 @@ namespace TrabalhoPraticoForm
 {
     public partial class GerirPontos : Form
     {
+        //SuperMercado
         SuperMercado Mercado;
         public GerirPontos(SuperMercado Mercado)
         {
@@ -23,6 +24,7 @@ namespace TrabalhoPraticoForm
             CriaTabela();
         }
 
+        //Cria a Tabela
         private void CriaTabela()
         {
             dtGridGerirCartoes.Columns.Clear();
@@ -122,6 +124,8 @@ namespace TrabalhoPraticoForm
             }
         }
 
+
+        //Alterar informaçoes
         private void btAlterarCartao_Click(object sender, EventArgs e)
         {
             if (dtGridGerirCartoes.SelectedRows.Count > 0)
