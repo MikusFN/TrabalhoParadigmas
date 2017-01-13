@@ -98,5 +98,31 @@ namespace TrabalhoPraticoForm
         {
             this.Close();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            {
+                if (dtGridArtigos.SelectedRows.Count > 0)
+                {
+                    if (MessageBox.Show("Tem a certeza que pretende alterar o artigo selecionado?", "Alterar", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
+                    {
+                        {
+                            DataGridViewSelectedRowCollection selecionados = dtGridArtigos.SelectedRows;
+                            foreach (DataGridViewRow r in selecionados)
+                            {
+                                string codigo = r.Cells[0].Value.ToString();
+                                Artigo a = m.ListaArtigos[codigo];
+                                FormAlterarArtigo f = new FormAlterarArtigo(m, a);
+                                f.ShowDialog();
+
+                            }
+                            CriaTabela();
+                        }
+                    }
+                }
+
+
+            }
+        }
     }
 }
